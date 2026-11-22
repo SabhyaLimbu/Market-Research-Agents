@@ -55,7 +55,7 @@ An example result is in [`sample_output.md`](sample_output.md).
 | Role | Job | Code |
 |---|---|---|
 | Orchestrator | Receives the topic, starts the workflow, runs the roles in order and allows one revision | `workflow.py` |
-| Researcher | Searches the web (DuckDuckGo) and extracts facts only from the results it found; lists what is missing | `workflow.py`, `search.py` |
+| Researcher | Searches the web and extracts facts only from the results it found; lists what is missing | `workflow.py`, `search.py` |
 | Analyst | Writes the brief from the findings (and rewrites it once if the Critic asks) | `workflow.py` |
 | Critic | Compares the draft with the findings; approves it or requests one revision | `workflow.py` |
 
