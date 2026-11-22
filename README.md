@@ -10,6 +10,17 @@ All roles use the same language model: Google Gemini (free tier) by default, or 
 Claude if only `ANTHROPIC_API_KEY` is set. Data moves between the roles as structured
 Pydantic models.
 
+## Works for any topic (Nepal is only an example)
+
+The app accepts **any company or industry**, for example `Tesla`, `Online education in India`
+or `Analyze the food delivery market in Nepal`. Nothing in the workflow is specific to Nepal.
+
+The Nepal food delivery query is used only as the example in this README, in the screenshots and in
+`sample_output.md`, because it is the example given in the assignment. For every topic the Researcher
+uses live web search. The only Nepal-specific code is a small, clearly labelled **sample-data fallback**
+in `search.py`: it is used only if live search returns nothing for that exact example query. For any
+other topic, if search returns nothing, the app shows an error and does not make up content.
+
 ## What the app shows
 
 A research brief with: a summary, up to two competitors, key observations, sources (with links)
