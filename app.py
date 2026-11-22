@@ -8,7 +8,7 @@ from workflow import orchestrator
 
 st.set_page_config(page_title="Market Research Agents", layout="centered")
 
-# ---------- Colors: set THEME to "ember", "ocean", "violet" or "forest" ----------
+
 THEME = "ember"
 PALETTES = {
     "ember": ("#7c3a14", "#6b1a35"),
@@ -217,7 +217,7 @@ def brief_to_markdown(query: str, b: Brief, origin: str) -> str:
     )
 
 
-# ---------- Sidebar ----------
+#  Sidebar 
 with st.sidebar:
     st.markdown(
         '<div class="side-title">How it works</div>'
@@ -240,10 +240,10 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-# ---------- Header and input ----------
+#  Header and input 
 st.markdown(
     '<div class="hero"><h1>Market Research Agents</h1>'
-    "<p>Type any company or industry. Four AI roles research it, write a short brief and review it.</p>"
+    "<p>Type any company or industry.</p>"
     '<div class="tags"><span>LIVE WEB RESEARCH</span><span>STRUCTURED HANDOFFS</span>'
     "<span>CRITIC REVIEW</span></div></div>",
     unsafe_allow_html=True,
@@ -256,7 +256,7 @@ with st.form("research_form"):
 pipe_slot = st.empty()
 msg_slot = st.empty()
 
-# ---------- Run ----------
+#  Run 
 if start:
     if not query.strip():
         st.warning("Please type a company or industry first.")
@@ -271,13 +271,13 @@ if start:
         try:
             st.session_state["state"] = orchestrator(query, notify=notify)
             msg_slot.empty()
-        except Exception as e:  # noqa: BLE001
+        except Exception as e: 
             pipe_slot.empty()
             msg_slot.empty()
             st.session_state.pop("state", None)
             st.error(str(e))
 
-# ---------- Results ----------
+#  Results 
 state = st.session_state.get("state")
 if state and state.final:
     pipe_slot.markdown(final_agents_html(state), unsafe_allow_html=True)
@@ -335,7 +335,7 @@ if state and state.final:
         with st.expander("Full shared state"):
             st.json(state.model_dump())
 elif not start:
-    st.markdown('<div class="sec-title">What your brief will contain</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-title">What is Included in the Brief</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="feat-grid">'
         + "".join(f'<div class="feat"><div class="ft">{t}</div><div class="fd">{d}</div></div>' for t, d in FEATURES)

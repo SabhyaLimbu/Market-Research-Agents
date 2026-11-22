@@ -22,7 +22,7 @@ GEMINI_MODELS = [
     for m in os.getenv("GEMINI_MODEL", "gemini-3.5-flash,gemini-3.5-flash-lite,gemini-3.1-flash-lite").split(",")
     if m.strip()
 ]
-_DEAD_MODELS: set[str] = set()  # models whose daily quota is used up / not found this session
+_DEAD_MODELS: set[str] = set() 
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-5")
 
 
@@ -51,7 +51,7 @@ def _call_gemini(system: str, user: str, key: str) -> str:
     for model in GEMINI_MODELS:
         if model in _DEAD_MODELS:
             continue
-        for attempt in range(4):  # short outages / per-minute limits: wait and retry
+        for attempt in range(4):  
             try:
                 resp = client.models.generate_content(
                     model=model,
@@ -61,15 +61,15 @@ def _call_gemini(system: str, user: str, key: str) -> str:
                     ),
                 )
                 return resp.text or ""
-            except Exception as e:  # noqa: BLE001
+            except Exception as e:  
                 if _is_daily_quota(e) or _is_missing(e):
-                    _DEAD_MODELS.add(model)  # do not waste time on it again; try the next model
+                    _DEAD_MODELS.add(model)  
                     break
                 if _is_transient(e):
                     if attempt < 3:
                         time.sleep(10 * (attempt + 1))
                         continue
-                    break  # still busy after retries: try the next model
+                    break  
                 raise
     raise RuntimeError(
         "The free Gemini quota is used up (or the models are unavailable) for: "
