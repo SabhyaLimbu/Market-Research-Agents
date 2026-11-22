@@ -77,8 +77,7 @@ The shared data models (`Findings`, `Brief`, `Critique`, `WorkflowState`) are in
 ### 2. Download the project
 
 ```bash
-git clone <YOUR-REPOSITORY-URL>
-cd <repository-folder>
+git clone https://github.com/SabhyaLimbu/Market-Research-Agents.git
 ```
 
 Or download the repository as a ZIP from GitHub, unzip it, and open a terminal inside the folder
