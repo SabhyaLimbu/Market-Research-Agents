@@ -19,11 +19,25 @@ An example result is in [`sample_output.md`](sample_output.md).
 
 ## Screenshots
 
+**1. All four roles finished**
+
+![Workflow complete: query box and the four role tiles](docs/workflow-complete.png)
+
+**2. The research brief** (summary, competitors, key observations)
+
 ![Research brief for the Nepal food delivery market](docs/research-brief.png)
+
+**3. Sources and missing information**
+
+![Linked sources and missing information](docs/sources-and-gaps.png)
+
+**4. Agent handoffs** (role status, activity log, structured data)
 
 ![Agent handoffs: role status, activity log and the Critic's verdict](docs/agent-handoffs.png)
 
-![Linked sources and missing information](docs/sources-and-gaps.png)
+**5. The Critic's raw verdict** (structured output passed back to the Orchestrator)
+
+![Critic verdict in raw structured form](docs/critic-verdict.png)
 
 ## The four roles
 
