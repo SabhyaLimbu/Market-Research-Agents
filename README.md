@@ -59,7 +59,7 @@ The shared data models (`Findings`, `Brief`, `Critique`, `WorkflowState`) are in
 - **Python 3.10 or newer.** Check with `python --version` (on Mac/Linux you may need `python3 --version`).
   Download from https://www.python.org/downloads/ if needed. On Windows, tick
   **"Add Python to PATH"** during installation.
-- **A free Gemini API key** (no credit card needed): open https://aistudio.google.com/apikey,
+- **A free Gemini API key** : open https://aistudio.google.com/apikey,
   sign in with a Google account, click **Create API key** and copy it.
 - An internet connection (for web search and the AI model).
 
